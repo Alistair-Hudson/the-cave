@@ -26,7 +26,6 @@ public class CharacterAI : MonoBehaviour
             {
                 goal = hit.point;
             }
-            print(goal);
         }
         navMeshAgent.SetDestination(goal);
     }
