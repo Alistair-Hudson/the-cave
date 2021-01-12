@@ -45,10 +45,10 @@ MonoBehaviour:
     y: 30
     width: 1920
     height: 987
-  m_MinSize: {x: 679, y: 492}
-  m_MaxSize: {x: 14002, y: 14042}
+  m_MinSize: {x: 678, y: 342}
+  m_MaxSize: {x: 12003, y: 8042}
   vertical: 0
-  controlID: 37
+  controlID: 38
 --- !u!114 &3
 MonoBehaviour:
   m_ObjectHideFlags: 52
@@ -96,8 +96,8 @@ MonoBehaviour:
     y: 0
     width: 427
     height: 626
-  m_MinSize: {x: 200, y: 200}
-  m_MaxSize: {x: 4000, y: 4000}
+  m_MinSize: {x: 201, y: 221}
+  m_MaxSize: {x: 4001, y: 4021}
   m_ActualView: {fileID: 20}
   m_Panes:
   - {fileID: 20}
@@ -113,7 +113,7 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 1
   m_Script: {fileID: 12006, guid: 0000000000000000e000000000000000, type: 0}
-  m_Name: ProjectBrowser
+  m_Name: ConsoleWindow
   m_EditorClassIdentifier: 
   m_Children: []
   m_Position:
@@ -122,15 +122,15 @@ MonoBehaviour:
     y: 626
     width: 1526
     height: 361
-  m_MinSize: {x: 231, y: 271}
-  m_MaxSize: {x: 10001, y: 10021}
-  m_ActualView: {fileID: 18}
+  m_MinSize: {x: 101, y: 121}
+  m_MaxSize: {x: 4001, y: 4021}
+  m_ActualView: {fileID: 23}
   m_Panes:
   - {fileID: 18}
   - {fileID: 23}
   - {fileID: 15}
-  m_Selected: 0
-  m_LastSelected: 1
+  m_Selected: 1
+  m_LastSelected: 0
 --- !u!114 &6
 MonoBehaviour:
   m_ObjectHideFlags: 52
@@ -219,10 +219,10 @@ MonoBehaviour:
     y: 0
     width: 1526
     height: 987
-  m_MinSize: {x: 403, y: 492}
-  m_MaxSize: {x: 10001, y: 14042}
+  m_MinSize: {x: 403, y: 342}
+  m_MaxSize: {x: 8003, y: 8042}
   vertical: 1
-  controlID: 38
+  controlID: 39
 --- !u!114 &10
 MonoBehaviour:
   m_ObjectHideFlags: 52
@@ -247,7 +247,7 @@ MonoBehaviour:
   m_MinSize: {x: 403, y: 221}
   m_MaxSize: {x: 8003, y: 4021}
   vertical: 0
-  controlID: 39
+  controlID: 40
 --- !u!114 &11
 MonoBehaviour:
   m_ObjectHideFlags: 52
@@ -422,7 +422,7 @@ MonoBehaviour:
   m_ViewDataDictionary: {fileID: 0}
   m_LockTracker:
     m_IsLocked: 0
-  m_LastSelectedObjectID: -2150
+  m_LastSelectedObjectID: 13278
 --- !u!114 &16
 MonoBehaviour:
   m_ObjectHideFlags: 52
@@ -525,9 +525,9 @@ MonoBehaviour:
     m_IsLocked: 0
   m_FolderTreeState:
     scrollPos: {x: 0, y: 0}
-    m_SelectedIDs: 28340000
-    m_LastClickedID: 13352
-    m_ExpandedIDs: 000000001a34000000ca9a3b
+    m_SelectedIDs: 44340000
+    m_LastClickedID: 13380
+    m_ExpandedIDs: 000000003c34000000ca9a3b
     m_RenameOverlay:
       m_UserAcceptedRename: 0
       m_Name: 
@@ -555,7 +555,7 @@ MonoBehaviour:
     scrollPos: {x: 0, y: 0}
     m_SelectedIDs: 
     m_LastClickedID: 0
-    m_ExpandedIDs: 000000001a340000
+    m_ExpandedIDs: 000000003c340000
     m_RenameOverlay:
       m_UserAcceptedRename: 0
       m_Name: 
@@ -580,8 +580,8 @@ MonoBehaviour:
       m_Icon: {fileID: 0}
       m_ResourceFile: 
   m_ListAreaState:
-    m_SelectedInstanceIDs: 
-    m_LastClickedInstanceID: 0
+    m_SelectedInstanceIDs: 08f2ffff
+    m_LastClickedInstanceID: -3576
     m_HadKeyboardFocusLastEvent: 1
     m_ExpandedInstanceIDs: c62300004a3c00000000000012cd0000
     m_RenameOverlay:
@@ -678,9 +678,9 @@ MonoBehaviour:
   m_SceneHierarchy:
     m_TreeViewState:
       scrollPos: {x: 0, y: 0}
-      m_SelectedIDs: c4330000
-      m_LastClickedID: 13252
-      m_ExpandedIDs: 6afbffff
+      m_SelectedIDs: de330000
+      m_LastClickedID: 13278
+      m_ExpandedIDs: 08f2ffff6afbffffde330000
       m_RenameOverlay:
         m_UserAcceptedRename: 0
         m_Name: 
@@ -740,9 +740,9 @@ MonoBehaviour:
   m_PlayAudio: 0
   m_AudioPlay: 0
   m_Position:
-    m_Target: {x: 3.7099, y: -18.454784, z: 13.362225}
+    m_Target: {x: 0.41818705, y: -0.6602802, z: 3.2604413}
     speed: 2
-    m_Value: {x: 3.7099, y: -18.454784, z: 13.362225}
+    m_Value: {x: 0.41818705, y: -0.6602802, z: 3.2604413}
   m_RenderMode: 0
   m_CameraMode:
     drawMode: 0
@@ -780,7 +780,7 @@ MonoBehaviour:
       m_Fade:
         m_Target: 0
         speed: 2
-        m_Value: 0
+        m_Value: 1
       m_Color: {r: 0.5, g: 0.5, b: 0.5, a: 0.4}
       m_Pivot: {x: 0, y: 0, z: 0}
       m_Size: {x: 1, y: 1}
@@ -788,13 +788,13 @@ MonoBehaviour:
     m_GridAxis: 1
     m_gridOpacity: 0.5
   m_Rotation:
-    m_Target: {x: -0.1328027, y: 0.86652714, z: -0.35802457, w: -0.3214224}
+    m_Target: {x: 0.23624419, y: 0.002915088, z: -0.0007087262, w: 0.97168857}
     speed: 2
-    m_Value: {x: -0.13280271, y: 0.86652726, z: -0.3580246, w: -0.32142243}
+    m_Value: {x: 0.2362443, y: 0.0029150895, z: -0.0007087265, w: 0.97168905}
   m_Size:
-    m_Target: 43.593987
+    m_Target: 4.850205
     speed: 2
-    m_Value: 43.593987
+    m_Value: 4.850205
   m_Ortho:
     m_Target: 0
     speed: 2
