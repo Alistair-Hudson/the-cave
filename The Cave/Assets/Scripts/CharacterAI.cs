@@ -19,28 +19,35 @@ public class CharacterAI : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if (Input.GetButtonDown("Fire1"))
+        ProcessMouseClick();
+        if (blockToMine != null)
         {
-            RaycastHit hit;
-
-            if (Physics.Raycast(Camera.main.ScreenPointToRay(Input.mousePosition), out hit, 100))
+            if (Vector3.Distance(blockToMine.transform.position, transform.position) <= 
+                    blockToMine.GetComponentInChildren<BoxCollider>().size.x + 1)
             {
-                goal = hit.point;
-                blockToMine = hit.transform.GetComponentInParent<Block>();
+                goal = transform.position;
+                blockToMine.MineBlock();
             }
         }
         navMeshAgent.SetDestination(goal);
     }
 
-    private void OnCollisionEnter(Collision collision)
+    private void ProcessMouseClick()
     {
-        Block collideWith = collision.transform.GetComponentInParent<Block>();
-        if (collideWith != null)
+        if (Input.GetButtonDown("Fire2"))
         {
-            if (collideWith.name == blockToMine.name)
+            RaycastHit hit;
+
+            if (Physics.Raycast(Camera.main.ScreenPointToRay(Input.mousePosition), out hit, 100))
             {
-                navMeshAgent.SetDestination(transform.position);
+                blockToMine = hit.transform.GetComponentInParent<Block>();
+                goal = hit.point;
+                if (blockToMine != null)
+                {
+                    goal = blockToMine.transform.position;
+                }
             }
         }
     }
+
 }

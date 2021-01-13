@@ -18,6 +18,7 @@ public class CameraControl : MonoBehaviour
     {
         HorisontalScroll();
         VerticalScroll();
+        
     }
 
     private void VerticalScroll()
