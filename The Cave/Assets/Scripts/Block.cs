@@ -4,19 +4,9 @@ using UnityEngine;
 
 public class Block : MonoBehaviour
 {
+    [SerializeField] ResourceHandler resourceHandler;
     [SerializeField] int availbleResources = 100;
-
-    // Start is called before the first frame update
-    void Start()
-    {
-        
-    }
-
-    // Update is called once per frame
-    void Update()
-    {
-        
-    }
+    [SerializeField] ResourceType resourceType = ResourceType.TITANIUM;
 
     public Vector3 GetGridPos()
     {
@@ -28,6 +18,7 @@ public class Block : MonoBehaviour
     public void MineBlock()
     {
         --availbleResources;
+        resourceHandler.AlterResourceAmount(resourceType, 1);
         if (0 >= availbleResources)
         {
             Destroy(gameObject);

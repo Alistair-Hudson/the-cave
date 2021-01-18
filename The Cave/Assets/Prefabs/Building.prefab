@@ -139,6 +139,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   maxHealth: 100
+  resourceCosts: 000000000000000000000000
 --- !u!1 &709271288527028165
 GameObject:
   m_ObjectHideFlags: 0

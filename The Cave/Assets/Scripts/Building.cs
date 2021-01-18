@@ -4,9 +4,10 @@ using UnityEngine;
 
 public class Building : PlayerAsset
 {
-    [SerializeField] float maxHealth = 100f;
+    [SerializeField] protected float maxHealth = 100f;
+    [SerializeField] protected int[] resourceCosts = new int[(int)ResourceType.NUM_RESOURCE_TYPES];
 
-    float health = 1f;
+     protected float health = 1f;
 
     public void TakeDamage(float damage)
     {
@@ -26,5 +27,10 @@ public class Building : PlayerAsset
             return true;
         }
         return false;
+    }
+
+    public int GetResourceCost(ResourceType resourceType)
+    {
+        return resourceCosts[(int)resourceType];
     }
 }
