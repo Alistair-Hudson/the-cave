@@ -10,7 +10,7 @@ public class ResourceHandler : MonoBehaviour
     private class Resource
     {
         public ResourceType resourceType;
-        public int resourceAmount;
+        public float resourceAmount;
     }
 
     public int GetResourceAmount(ResourceType resource)
@@ -20,13 +20,13 @@ public class ResourceHandler : MonoBehaviour
         {
             if (resources[i].resourceType == resource)
             {
-                return resources[i].resourceAmount;
+                return (int)resources[i].resourceAmount;
             }
         }
         return -1;
     }
 
-    public void AlterResourceAmount(ResourceType resource, int amount)
+    public void AlterResourceAmount(ResourceType resource, float amount)
     {
         for (int i = 0; i < resources.Length; ++i)
         {

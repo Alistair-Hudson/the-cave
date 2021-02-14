@@ -4,9 +4,15 @@ using UnityEngine;
 
 public class Block : MonoBehaviour
 {
-    [SerializeField] ResourceHandler resourceHandler;
+    ResourceHandler resourceHandler;
     [SerializeField] int availbleResources = 100;
     [SerializeField] ResourceType resourceType = ResourceType.TITANIUM;
+    [SerializeField] bool isNotMineable = false;
+
+    private void Start()
+    {
+        resourceHandler = FindObjectOfType<ResourceHandler>();
+    }
 
     public Vector3 GetGridPos()
     {
@@ -17,11 +23,14 @@ public class Block : MonoBehaviour
 
     public void MineBlock()
     {
-        --availbleResources;
-        resourceHandler.AlterResourceAmount(resourceType, 1);
-        if (0 >= availbleResources)
+        if (!isNotMineable)
         {
-            Destroy(gameObject);
+            --availbleResources;
+            resourceHandler.AlterResourceAmount(resourceType, 1);
+            if (0 >= availbleResources)
+            {
+                Destroy(gameObject);
+            }
         }
     }
 

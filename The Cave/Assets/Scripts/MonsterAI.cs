@@ -8,13 +8,13 @@ public class MonsterAI : MonoBehaviour
 {
     [SerializeField] float fightRange = 5f;
     [SerializeField] float turnSpeed = 5f;
-    //[SerializeField] float damage = 50f;
+    [SerializeField] float dps = 50f;
+    [SerializeField] int health = 100;
 
 
     NavMeshAgent navMeshAgent;
     PlayerAsset[] playerAssets;
     float distanceToTarget = Mathf.Infinity;
-    //bool isProvoked = false;
 
     // Start is called before the first frame update
     void Start()
@@ -42,40 +42,47 @@ public class MonsterAI : MonoBehaviour
         EngageTarget(closestAsset);
     }
 
-    //public void OnHit()
-    //{
-    //    isProvoked = true;
-    //}
+    private void OnParticleCollision(GameObject other)
+    {
+        --health;
+        if (0 >= health)
+        {
+            Destroy(gameObject);
+        }
+    }
 
     private void EngageTarget(PlayerAsset asset)
     {
-        if (distanceToTarget >= navMeshAgent.stoppingDistance)
+        if (Vector3.Distance(transform.position, asset.transform.position) >= 
+            (asset.GetComponent<BoxCollider>().size.x + 1))
         {
             MoveToAsset(asset);
+            return;
         }
-
-        if (distanceToTarget <= navMeshAgent.stoppingDistance)
-        {
-            FaceAsset(asset);
-            AttackAsset(asset);
-        }
+        FaceAsset(asset);
+        AttackAsset(asset);
+        
     }
 
     private void MoveToAsset(PlayerAsset asset)
     {
+        GetComponent<Animator>().SetTrigger("TriggerMove");
         navMeshAgent.SetDestination(asset.transform.position);
     }
 
     private void AttackAsset(PlayerAsset asset)
     {
+
         GetComponent<Animator>().SetTrigger("TriggerAttack");
+        HitTarget(asset);
 
     }
 
-    //void HitTarget()
-    //{
-    //    target.GetComponent<PlayerHealth>().TakeDamage(damage);
-    //}
+    void HitTarget(PlayerAsset asset)
+    {
+        asset.TryGetComponent<Building>(out Building building);
+        building.TakeDamage(dps * Time.deltaTime);
+    }
 
     void FaceAsset(PlayerAsset asset)
     {

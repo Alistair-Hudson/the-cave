@@ -27,10 +27,14 @@ public class BuildingSpawner : MonoBehaviour
         if (Input.GetButtonDown("Fire1"))
         {
             RaycastHit hit;
-            if (Physics.Raycast(Camera.main.ScreenPointToRay(Input.mousePosition), out hit, 100))
+            if (Physics.Raycast(Camera.main.ScreenPointToRay(Input.mousePosition), out hit, Mathf.Infinity))
             {
                 if (HaveEnoughResources())
                 {
+                    for (ResourceType type = 0; type < ResourceType.NUM_RESOURCE_TYPES; ++type)
+                    {
+                        resourceHandler.AlterResourceAmount(type, -buildingPrefabs[selectedBuilding].GetResourceCost(type));
+                    }
                     Building newBuilding = Instantiate(buildingPrefabs[selectedBuilding], hit.point, Quaternion.identity);
                     newBuilding.transform.parent = transform;
                     player.BuildBuilding(newBuilding);

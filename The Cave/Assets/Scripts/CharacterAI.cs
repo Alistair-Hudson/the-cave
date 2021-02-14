@@ -42,7 +42,7 @@ public class CharacterAI : MonoBehaviour
             if (Vector3.Distance(buildToRepair.transform.position, transform.position) <=
                     buildToRepair.GetComponentInChildren<BoxCollider>().size.x + 1)
             {
-                goal = transform.position;
+                navMeshAgent.ResetPath();
                 if (buildToRepair.RepairDamage(1))
                 {
                     buildToRepair = null;
@@ -56,9 +56,9 @@ public class CharacterAI : MonoBehaviour
         if (blockToMine != null)
         {
             if (Vector3.Distance(blockToMine.transform.position, transform.position) <=
-                    blockToMine.GetComponentInChildren<BoxCollider>().size.x + 1)
+                    blockToMine.transform.lossyScale.x + 1)
             {
-                goal = transform.position;
+                navMeshAgent.ResetPath();
                 blockToMine.MineBlock();
             }
         }
@@ -72,17 +72,18 @@ public class CharacterAI : MonoBehaviour
 
             if (Physics.Raycast(Camera.main.ScreenPointToRay(Input.mousePosition), out hit, 100))
             {
-                blockToMine = hit.transform.GetComponentInParent<Block>();
-                buildToRepair = hit.transform.GetComponentInParent<Building>();
-                goal = hit.point;
-                if (blockToMine != null)
+                if(hit.transform.TryGetComponent<Block>(out blockToMine))
                 {
                     goal = blockToMine.transform.position;
+                    return;
                 }
-                if (buildToRepair != null)
+                if(hit.transform.TryGetComponent<Building>(out buildToRepair))
                 {
                     goal = buildToRepair.transform.position;
+                    return;
                 }
+                goal = hit.point;
+                
             }
         }
     }
